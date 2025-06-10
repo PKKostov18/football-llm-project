@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football LLM Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Football LLM Assistant</h1>
+        <p>Напишете начало на изречение (prompt) и моделът ще го довърши с футболна информация.</p>
+
+        <form action="/" method="post">
+            <textarea name="prompt" rows="3" placeholder="Пример: Мачът между Реал Мадрид и Барселона...">{{ prompt_text or '' }}</textarea>
+            <button type="submit">Генерирай текст</button>
+        </form>
+
+        {% if generated_text %}
+        <div class="result">
+            <h2>Генериран резултат:</h2>
+            <p>{{ generated_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
